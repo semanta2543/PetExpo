@@ -1,0 +1,102 @@
+.about {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.aboutTop {
+  width: 100%;
+  height: 250px;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-bottom: 10px;
+}
+
+.aboutBottom {
+  display: flex;
+  flex-direction: column; /* Default to column for better stacking on smaller screens */
+  padding: 20px;
+}
+
+.aboutRight {
+  display: flex;
+  flex-direction: column;
+}
+
+.about .aboutBottom h2 {
+  font-weight: 400;
+  font-size: 36px; /* Adjusted for better readability on smaller screens */
+  color: black;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.about .aboutBottom p {
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+@media only screen and (max-width: 600px) {
+  .aboutBottom {
+    padding: 10px;
+  }
+
+  .aboutRight, .aboutLeft {
+    width: 100%;
+  }
+
+  .aboutRight {
+    order: 1;
+    margin-bottom: 20px;
+  }
+
+  .aboutLeft {
+    order: 2;
+    height: 200px; /* Adjust the height for smaller screens */
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 991px) {
+  .aboutBottom {
+    flex-direction: column;
+  }
+
+  .aboutRight, .aboutLeft {
+    width: 100%;
+  }
+
+  .aboutRight {
+    order: 1;
+    margin-bottom: 20px;
+  }
+
+  .aboutLeft {
+    order: 2;
+    height: 300px; /* Adjust the height for medium screens */
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .aboutBottom {
+    flex-direction: row;
+  }
+
+  .aboutRight, .aboutLeft {
+    width: 50%;
+  }
+
+  .aboutLeft {
+    height: auto; /* Let the iframe determine the height */
+  }
+
+  .aboutRight {
+    order: 1;
+    margin-bottom: 0;
+  }
+
+  .aboutLeft {
+    order: 2;
+  }
+}

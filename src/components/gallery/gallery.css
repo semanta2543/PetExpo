@@ -1,0 +1,20 @@
+.cardContainer{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    place-items: center;
+    width: 100%;
+    gap: 30px;
+}
+@media (max-width: 1024px) {
+    .cardContainer {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px; /* Two columns for tablet */
+    }
+}
+
+@media (max-width: 768px) {
+    .cardContainer {
+        grid-template-columns: 1fr; /* Single column for mobile */
+        gap: 30px;
+    }
+}
