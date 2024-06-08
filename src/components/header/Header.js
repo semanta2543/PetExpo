@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 import TextField from "@mui/material/TextField";
 import OutsideClickHandler from "react-outside-click-handler";
 import SearchIcon from '@mui/icons-material/Search';
-
+import CloseIcon from '@mui/icons-material/Close';
 const Header = ({ dogs, cats, birds, onModalShow }) => {
   const [searchResults, setSearchResults] = useState([]);
   const [query, setQuery] = useState("");
@@ -25,13 +25,15 @@ const Header = ({ dogs, cats, birds, onModalShow }) => {
   };
 
   const toggleSearch = () => {
-    setIsSearchVisible(!isSearchVisible);
+    setIsSearchVisible(true);
+  };
+  const toggleClose = () => {
+    setIsSearchVisible(false);
   };
 
   const hideSearch = () => {
     setQuery("");
     setSearchResults([]);
-    setIsSearchVisible(false);
   };
 
   return (
@@ -51,6 +53,7 @@ const Header = ({ dogs, cats, birds, onModalShow }) => {
               value={query}
               onChange={(e) => handleSearch(e.target.value)}
             /> 
+            
             <OutsideClickHandler onOutsideClick={hideSearch}>
               {query &&
                 (searchResults.length > 0 ? (
@@ -110,8 +113,8 @@ const Header = ({ dogs, cats, birds, onModalShow }) => {
             </NavLink>
           </div>
         )}
-        <div className="search-icon" onClick={toggleSearch}>
-          <SearchIcon />
+        <div className="search-icon" > 
+        {isSearchVisible? <CloseIcon onClick={toggleClose}/> : <SearchIcon onClick={toggleSearch} />}
         </div>
       </div>
     </div>
